@@ -1,0 +1,6 @@
+@PanamaBackend_HostAddress = http://localhost:5070
+
+GET {{PanamaBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
