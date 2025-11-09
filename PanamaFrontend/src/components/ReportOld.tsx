@@ -1,6 +1,6 @@
 import { useForm, Controller } from "react-hook-form";
-import { type JSX, useState } from "react";
-import { Square, SquareCheck } from "lucide-react";
+import {type JSX, useState} from "react";
+import {Square, SquareCheck} from "lucide-react";
 
 interface ReportFormData {
     name: string;
@@ -17,7 +17,7 @@ export default function Report(): JSX.Element {
         handleSubmit,
         setValue,
         control,
-        formState: { errors },
+        formState: { errors }
     } = useForm<ReportFormData>({
         defaultValues: {
             name: "",
@@ -26,9 +26,8 @@ export default function Report(): JSX.Element {
             longitude: null,
             country: null,
             image: null,
-        },
+        }
     });
-
     const [locationStatus, setLocationStatus] = useState<boolean>(false);
 
     const onSubmit = async (data: ReportFormData) => {
@@ -41,8 +40,9 @@ export default function Report(): JSX.Element {
 
         const payload = {
             ...data,
-            country,
+            country, // now guaranteed to be set
         };
+
 
         // Create FormData to handle file upload
         const formData = new FormData();
@@ -56,13 +56,10 @@ export default function Report(): JSX.Element {
         }
 
         try {
-            const response = await fetch(
-                "https://panamabackend-production.up.railway.app/api/reports",
-                {
-                    method: "POST",
-                    body: formData,
-                }
-            );
+            const response = await fetch("https://panamabackend-production.up.railway.app/api/reports", {
+                method: "POST",
+                body: formData,
+            });
 
             if (!response.ok) {
                 throw new Error(`Error: ${response.statusText}`);
@@ -77,9 +74,11 @@ export default function Report(): JSX.Element {
         }
 
         console.log("Report Submitted:", payload);
+        // send payload to backend
     };
 
     const handleLocation = async () => {
+
         if (!navigator.geolocation) {
             alert("Geolocation is not supported by your browser.");
             return;
@@ -108,10 +107,7 @@ export default function Report(): JSX.Element {
         );
     };
 
-    const fetchCountryFromCoords = async (
-        lat: number,
-        lng: number
-    ): Promise<string | null> => {
+    const fetchCountryFromCoords = async (lat: number, lng: number): Promise<string | null> => {
         try {
             const response = await fetch(
                 `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
@@ -127,6 +123,7 @@ export default function Report(): JSX.Element {
     return (
         <div className="bg-gray-50 min-h-screen flex justify-center items-start py-10 px-4 text-gray-900">
             <div className="max-w-md w-full bg-white rounded-3xl shadow-lg border border-gray-200 p-6">
+
                 <h2 className="text-4xl font-semibold text-gray-900 mb-6 border-b-4 border-yellow-400 pb-2">
                     Disease Report
                 </h2>
@@ -143,7 +140,6 @@ export default function Report(): JSX.Element {
                             <p className="text-red-600 text-sm mt-1">Name is required.</p>
                         )}
                     </div>
-
                     <div>
                         <input
                             type="email"
@@ -155,36 +151,6 @@ export default function Report(): JSX.Element {
                             <p className="text-red-600 text-sm mt-1">Email is required.</p>
                         )}
                     </div>
-
-                    {/* Latitude & Longitude inputs */}
-                    <div className="flex space-x-2">
-                        <div className="w-1/2">
-                            <input
-                                type="number"
-                                step="any"
-                                placeholder="Latitude"
-                                className="w-full p-2.5 border border-gray-300 rounded-lg focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200 outline-none bg-white text-gray-900"
-                                {...register("latitude", { required: true })}
-                            />
-                            {errors.latitude && (
-                                <p className="text-red-600 text-sm mt-1">Latitude is required.</p>
-                            )}
-                        </div>
-                        <div className="w-1/2">
-                            <input
-                                type="number"
-                                step="any"
-                                placeholder="Longitude"
-                                className="w-full p-2.5 border border-gray-300 rounded-lg focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200 outline-none bg-white text-gray-900"
-                                {...register("longitude", { required: true })}
-                            />
-                            {errors.longitude && (
-                                <p className="text-red-600 text-sm mt-1">Longitude is required.</p>
-                            )}
-                        </div>
-                    </div>
-
-                    {/* Use My Location button */}
                     <div className="flex items-center space-x-2">
                         <button
                             type="button"
@@ -193,6 +159,7 @@ export default function Report(): JSX.Element {
                         >
                             Use My Location
                         </button>
+
                         <div className="flex-shrink-0">
                             {locationStatus ? (
                                 <SquareCheck className="text-teal" size={54} />
@@ -202,7 +169,6 @@ export default function Report(): JSX.Element {
                         </div>
                     </div>
 
-                    {/* Image upload */}
                     <div>
                         <Controller
                             name="image"
@@ -221,7 +187,6 @@ export default function Report(): JSX.Element {
                             )}
                         />
                     </div>
-
                     <div>
                         <button
                             type="submit"
