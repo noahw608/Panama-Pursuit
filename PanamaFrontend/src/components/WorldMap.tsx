@@ -29,7 +29,7 @@ export const WorldMap: React.FC = () => {
     useEffect(() => {
         const fetchReports = async () => {
             try {
-                const response = await fetch('http://localhost:5070/api/reports');
+                const response = await fetch('https://panamabackend-production.up.railway.app/api/reports');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }

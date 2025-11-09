@@ -35,7 +35,7 @@ export default function ChatPopup({ isOpen, onClose }: ChatPopupProps) {
         setInput("");
 
         try {
-            const response = await fetch("http://localhost:5070/api/gemini/generate", {
+            const response = await fetch("http://panamabackend-production.up.railway.app/api/gemini/generate", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

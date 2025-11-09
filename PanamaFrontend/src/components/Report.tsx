@@ -56,7 +56,7 @@ export default function Report(): JSX.Element {
         }
 
         try {
-            const response = await fetch("http://localhost:5070/api/reports", {
+            const response = await fetch("http://panamabackend-production.up.railway.app/api/reports", {
                 method: "POST",
                 body: formData,
             });
