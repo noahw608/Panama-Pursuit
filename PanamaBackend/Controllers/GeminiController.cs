@@ -42,7 +42,7 @@ namespace PanamaBackend.Controllers
             var dbStateJson = JsonSerializer.Serialize(reports);
 
             var combinedPrompt = 
-                "You are an expert on the Panama Virus. You have been provided with a database of outbreak locations and exist to analyze the data and provide insight into any questions asked.\n\n" +
+                "You are an expert on the Panama Virus. You have been provided with a database of outbreak locations and exist to analyze the data and provide insight into any questions asked. Only answer questions as raw text, do not format.\n\n" +
                 $"Here is the current state of the database: {dbStateJson}\n\nUser prompt: {request.Prompt}";
 
             var geminiUrl = $"https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key={apiKey}";
