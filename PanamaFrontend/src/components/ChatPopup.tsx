@@ -63,7 +63,7 @@ export default function ChatPopup({ isOpen, onClose }: ChatPopupProps) {
 
     return (
         <div
-            className={`fixed top-1/10 right-2 h-2/3 w-96 bg-white rounded-xl shadow-xl flex flex-col z-50
+            className={`fixed top-1/10 right-2 h-2/3 w-96 bg-white rounded-xl shadow-xl flex flex-col z-[9999]
         transition-opacity duration-500 ease-in-out
         ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
         >
