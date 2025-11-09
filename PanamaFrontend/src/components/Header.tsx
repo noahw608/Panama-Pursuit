@@ -4,7 +4,7 @@ import {Bars3Icon} from "@heroicons/react/16/solid";
 export default function Header() : JSX.Element {
    return (
        <header className="border-b-2 border-yellow-500">
-           <div className="navbar bg-banana shadow-sm">
+           <div className="navbar bg-teal shadow-sm">
                <div className="flex-1">
                    <a className="btn btn-ghost text-3xl text-yellow-500">Panama Pursuit</a>
                </div>

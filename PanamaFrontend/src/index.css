@@ -13,11 +13,15 @@ body {
 }
 
 .text-teal {
+    color: #4A6B7C;
+}
+
+.text-banana {
     color: #F7D154;
 }
 
 .bg-banana {
-    background-color: #4A6B7C;
+    background-color: #F7D154;
 }
 
 .bg-teal {
