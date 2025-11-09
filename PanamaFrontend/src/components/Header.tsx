@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import {Bars3Icon} from "@heroicons/react/16/solid";
+import {Banana} from "lucide-react";
 
 export default function Header() : JSX.Element {
    return (
@@ -8,9 +8,9 @@ export default function Header() : JSX.Element {
                <div className="flex-1">
                    <a className="btn btn-ghost text-3xl text-yellow-500">Panama Pursuit</a>
                </div>
-               <div className="flex-none">
+               <div className="flex-none mr-2">
                    <button className="btn !bg-yellow-500">
-                       <Bars3Icon className="h-6 w-6 text-[#4A6B7C]" />
+                       <Banana className="h-6 w-6 text-teal" />
                    </button>
                </div>
            </div>
