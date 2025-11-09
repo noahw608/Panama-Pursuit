@@ -98,7 +98,7 @@ export const WorldMap: React.FC = () => {
                                 <div className="hero-content flex-col lg:flex-row">
                                     <div className="flex-1 bg-gray-200 flex items-center justify-center rounded-lg mx-2 overflow-hidden min-h-[200px] max-h-95">
                                         <img
-                                            src="/assets/banana2.jpg"
+                                            src={selectedReport.imageBase64 ? "data:image/jpeg;base64," + selectedReport.imageBase64 : "/assets/banana2.jpg"}
                                             alt="Report"
                                             className="max-w-full max-h-full object-contain"
                                         />

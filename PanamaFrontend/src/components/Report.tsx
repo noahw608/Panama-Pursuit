@@ -56,7 +56,7 @@ export default function Report(): JSX.Element {
         }
 
         try {
-            const response = await fetch("https://localhost:5070/api/reports", {
+            const response = await fetch("http://localhost:5070/api/reports", {
                 method: "POST",
                 body: formData,
             });
