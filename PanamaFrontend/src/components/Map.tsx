@@ -13,7 +13,7 @@ export default function Map(): JSX.Element {
                         Active Outbreaks: 42 | Countries Affected: 12
                 </div>
 
-                <div className="border-2 border-gray-300 rounded-lg overflow-hidden mx-auto w-fit shadow-md">
+                <div className="border-2 border-gray-300 rounded-lg overflow-auto flex justify-center items-center mx-auto max-w-full shadow-md">
                     <WorldMap />
                 </div>
             </div>
