@@ -5,6 +5,8 @@ WORKDIR /src
 # Copy project files
 COPY . .
 
+RUN chmod -R 777 /app
+
 # Publish for release
 RUN dotnet publish -c Release -o /app/out
 
