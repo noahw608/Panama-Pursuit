@@ -5,6 +5,8 @@ WORKDIR /src
 # Copy project files
 COPY . .
 
+RUN mkdir -p /data
+
 # Publish for release (creates /app/out)
 RUN dotnet publish -c Release -o /app/out
 
