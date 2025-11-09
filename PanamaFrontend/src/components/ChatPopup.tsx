@@ -17,10 +17,13 @@ export default function ChatPopup({ isOpen, onClose }: ChatPopupProps) {
     const [visible, setVisible] = useState(false); // for fade-in
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-        if (isOpen) setVisible(true);
-        else setVisible(false);
-    }, [isOpen]);
+useEffect(() => {
+    if (isOpen) setVisible(true);
+    if (isOpen && messages.length === 0) {
+        setMessages([{ id: 0, text: "Welcome! How can I help you today?", sender: "ai" }]);
+    }
+    else setVisible(false);
+}, [isOpen]);
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
