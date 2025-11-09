@@ -13,7 +13,7 @@ export default function History(): JSX.Element {
     }, []);
 
     return (
-        <div className="hero min-h-[90vh] bg-yellow-100 text-[#333333] py-12 px-6">
+        <div className="hero min-h-[85vh] bg-yellow-100 text-[#333333] py-12 px-6">
             <div className="hero-content flex-col lg:flex-row-reverse items-center justify-between gap-12 w-full max-w-7xl mx-auto">
                 {/* Image Slideshow */}
                 <div className="relative w-full lg:w-3/8 aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
