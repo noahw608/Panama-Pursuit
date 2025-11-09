@@ -3,38 +3,39 @@ using PanamaBackend.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure Kestrel for Railway or local dev
 builder.WebHost.ConfigureKestrel(options =>
 {
     var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
     options.ListenAnyIP(int.Parse(port));
 });
 
-// Add services to the container.
+// Add services to the container
 builder.Services.AddControllers();
 
-// Configure EF Core with SQLite
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// Read database path or connection string
+var dbPathOrConn = Environment.GetEnvironmentVariable("DATABASE_PATH")
+    ?? builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? "/data/app.db";
 
-// Log what was found (to stdout so you can see it in Railway logs)
-Console.WriteLine($"[DEBUG] Connection string read: '{connectionString}'");
+// Ensure valid SQLite connection string format
+var connectionString = dbPathOrConn.StartsWith("Data Source=")
+    ? dbPathOrConn
+    : $"Data Source={dbPathOrConn}";
 
-// Fallback if it's null or empty
-if (string.IsNullOrWhiteSpace(connectionString))
-{
-    connectionString = "Data Source=/app/app.db";
-    Console.WriteLine("[WARN] Connection string was empty — using fallback: Data Source=/app/app.db");
-}
+Console.WriteLine($"[DEBUG] Final SQLite connection string: '{connectionString}'");
 
+// Register DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(connectionString));
 
-// Add Swagger/OpenAPI services
+// Add Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddHttpClient();
 
-// ✅ Add CORS configuration
+// CORS setup
 var allowedOrigins = builder.Configuration["AllowedOrigins"];
 
 builder.Services.AddCors(options =>
@@ -47,6 +48,12 @@ builder.Services.AddCors(options =>
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         }
+        else
+        {
+            policy.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        }
     });
 });
 
@@ -54,7 +61,7 @@ var app = builder.Build();
 
 app.UseCors("AllowSpecificOrigin");
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -62,18 +69,16 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-// ✅ Enable CORS before authorization and controllers
-app.UseCors("AllowFrontend");
-
 app.UseAuthorization();
 
 app.MapControllers();
 
+// Ensure SQLite DB exists
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.EnsureCreated(); // Automatically creates app.db if missing
+    db.Database.EnsureCreated();
+    Console.WriteLine("[INFO] SQLite database ensured/created successfully.");
 }
 
 app.Run();
