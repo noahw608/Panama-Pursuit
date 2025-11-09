@@ -4,7 +4,7 @@ import type { JSX } from "react";
 export default function Map(): JSX.Element {
     return (
         <section className="bg-teal py-12 flex justify-center">
-            <div className="max-w-4xl w-full px-6">
+            <div className="max-w-5xl w-full px-6">
                 <h2 className="text-4xl font-semibold text-yellow-500 mb-6 text-center">
                     Global Coverage Map
                 </h2>
