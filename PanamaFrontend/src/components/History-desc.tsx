@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { JSX } from "react";
 
 export default function History(): JSX.Element {
-    const totalSlides = 8;
+    const totalSlides = 4;
     const [currentSlide, setCurrentSlide] = useState(0);
 
     useEffect(() => {
