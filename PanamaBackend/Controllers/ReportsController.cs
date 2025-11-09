@@ -16,6 +16,21 @@ public class ReportsController : ControllerBase
     {
         _context = context;
     }
+    
+    // DELETE: api/Reports/{id}
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteReport(int id)
+    {
+        var report = await _context.Reports.FindAsync(id);
+        if (report == null)
+        {
+            return NotFound();
+        }
+
+        _context.Reports.Remove(report);
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
 
     // GET: api/Reports
     [HttpGet]
@@ -97,18 +112,14 @@ public class ReportDto
 public class ReportCreateDto
 {
     public string? Name { get; set; }
-    
-    [Required]
-    public string? Email { get; set; }
-    
-    [Required]
-    public string? Country { get; set; }
 
-    [Required]
-    public decimal Latitude { get; set; }
+    [Required] public string? Email { get; set; }
 
-    [Required]
-    public decimal Longitude { get; set; }
+    [Required] public string? Country { get; set; }
+
+    [Required] public decimal Latitude { get; set; }
+
+    [Required] public decimal Longitude { get; set; }
 
     public IFormFile? Image { get; set; } // uploaded image
 }
