@@ -13,6 +13,7 @@ export default function Header(): JSX.Element {
                     <a className="btn btn-ghost text-3xl text-yellow-500">Panama Pursuit</a>
                 </div>
                 <div className="flex-none mr-2">
+                    <span>Banan-AI</span>
                     <button
                         className="btn !bg-yellow-500"
                         onClick={() => setChatOpen(true)}
