@@ -14,6 +14,17 @@ builder.Services.AddControllers();
 
 // Configure EF Core with SQLite
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Log what was found (to stdout so you can see it in Railway logs)
+Console.WriteLine($"[DEBUG] Connection string read: '{connectionString}'");
+
+// Fallback if it's null or empty
+if (string.IsNullOrWhiteSpace(connectionString))
+{
+    connectionString = "Data Source=/app/app.db";
+    Console.WriteLine("[WARN] Connection string was empty — using fallback: Data Source=/app/app.db");
+}
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(connectionString));
 
