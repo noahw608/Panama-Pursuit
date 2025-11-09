@@ -14,6 +14,9 @@ builder.WebHost.ConfigureKestrel(options =>
 // Add services to the container.
 builder.Services.AddControllers();
 
+// Register HttpClient
+builder.Services.AddHttpClient();
+
 // ---- Configure SQLite ----
 
 // Try to get connection string from environment or appsettings

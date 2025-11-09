@@ -94,7 +94,6 @@ export default function Report(): JSX.Element {
                 fetchCountryFromCoords(latitude, longitude).then((country) => {
                     if (country) {
                         console.log("Detected country:", country);
-                        setValue("country", country);
                     }
                     setLocationStatus(true);
                 });
@@ -153,6 +152,19 @@ export default function Report(): JSX.Element {
                         />
                         {errors.email && (
                             <p className="text-red-600 text-sm mt-1">Email is required.</p>
+                        )}
+                    </div>
+
+                    {/* Country input */}
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Country"
+                            className="w-full p-2.5 border border-gray-300 rounded-lg focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200 outline-none bg-white text-gray-900"
+                            {...register("country", { required: true })}
+                        />
+                        {errors.country && (
+                            <p className="text-red-600 text-sm mt-1">Country is required.</p>
                         )}
                     </div>
 
