@@ -13,7 +13,7 @@ export default function Mission(): JSX.Element {
     }, []);
 
     return (
-        <div className="hero min-h-[90vh] bg-[#ACCC8F] text-[#333333] py-12 px-6">
+        <div className="hero min-h-[90vh] bg-yellow-100 text-[#333333] py-12 px-6">
             <div className="hero-content flex-col lg:flex-row items-center justify-between gap-12 w-full max-w-7xl mx-auto">
                 {/* Image Slideshow (Now on the LEFT) */}
                 <div className="relative w-full lg:w-3/8 aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
@@ -31,7 +31,7 @@ export default function Mission(): JSX.Element {
 
                 {/* Text Section (Now on the RIGHT) */}
                 <div className="max-w-xl text-center lg:text-left">
-                    <h1 className="text-4xl font-bold mb-6 text-[#517033]">
+                    <h1 className="text-4xl font-bold mb-6 text-yellow-500">
                         Our Mission
                     </h1>
 

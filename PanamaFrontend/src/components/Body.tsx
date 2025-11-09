@@ -1,7 +1,7 @@
 import type {JSX} from "react";
 import History from "./History-desc.tsx"
 import Mission from "./Mission.tsx"
-import {WorldMap} from "./WorldMap.tsx";
+import Map from "./Map.tsx";
 
 
 export default function Body() : JSX.Element {
@@ -9,7 +9,7 @@ export default function Body() : JSX.Element {
         <>
             <History />
             <Mission />
-            <WorldMap />
+            <Map />
         </>
     )
 }
