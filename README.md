@@ -10,8 +10,6 @@ To insert disease report data, access this link on your mobile device and upload
 
 To see total disease reports, access this link on your desktop view device.
 
-![Demo](https://github.com/noahw608/Panama-Pursuit/Demo-Video(1).mp4)
-
 ---
 
 ## 🦠 Overview
