@@ -1,3 +1,4 @@
+using System.Text.Json.Nodes;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Text;
@@ -44,7 +45,7 @@ namespace PanamaBackend.Controllers
                 "You are an expert on the Panama Virus. You have been provided with a database of outbreak locations and exist to analyze the data and provide insight into any questions asked.\n\n" +
                 $"Here is the current state of the database: {dbStateJson}\n\nUser prompt: {request.Prompt}";
 
-            var geminiUrl = $"https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key={apiKey}";
+            var geminiUrl = $"https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key={apiKey}";
 
             var payload = new
             {
@@ -69,7 +70,9 @@ namespace PanamaBackend.Controllers
             if (!response.IsSuccessStatusCode)
                 return StatusCode((int)response.StatusCode, result);
 
-            return Ok(JsonDocument.Parse(result));
+            var jsonNode = JsonNode.Parse(result);
+            var message = jsonNode?["candidates"]?[0]?["content"]?["parts"]?[0]?["text"]?.ToString();
+            return Ok(new { message = message ?? "No response" });
         }
     }
 

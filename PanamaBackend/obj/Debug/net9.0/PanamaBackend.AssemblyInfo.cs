@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PanamaBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c808a3335a353383068c6cab78cc4e64eb56f28e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf4a8d99186139cbb0f547547965a03016f3e45d")]
 [assembly: System.Reflection.AssemblyProductAttribute("PanamaBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PanamaBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

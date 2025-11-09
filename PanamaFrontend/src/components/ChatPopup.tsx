@@ -26,21 +26,39 @@ export default function ChatPopup({ isOpen, onClose }: ChatPopupProps) {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
 
-    const handleSend = () => {
+    const handleSend = async () => {
         if (!input.trim()) return;
 
         const userMessage: Message = { id: messages.length, text: input, sender: "user" };
         setMessages((prev) => [...prev, userMessage]);
+        const currentInput = input;
         setInput("");
 
-        setTimeout(() => {
+        try {
+            const response = await fetch("http://localhost:5070/api/gemini/generate", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ prompt: currentInput }),
+            });
+
+            const data = await response.json();
             const aiMessage: Message = {
                 id: messages.length + 1,
-                text: "This is a placeholder AI response.",
+                text: data.message || "No response",
                 sender: "ai",
             };
             setMessages((prev) => [...prev, aiMessage]);
-        }, 500);
+        } catch (error) {
+            console.error("Error sending message:", error);
+            const aiMessage: Message = {
+                id: messages.length + 1,
+                text: "Error: could not reach server",
+                sender: "ai",
+            };
+            setMessages((prev) => [...prev, aiMessage]);
+        }
     };
 
     return (
