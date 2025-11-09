@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/noahw608/Desktop/Panama-Pursuit/PanamaBackend/PanamaBackend.csproj": {}
+    "/Users/ajrbones/Documents/GitHub/Panama-Pursuit/PanamaBackend/PanamaBackend.csproj": {}
   },
   "projects": {
-    "/Users/noahw608/Desktop/Panama-Pursuit/PanamaBackend/PanamaBackend.csproj": {
+    "/Users/ajrbones/Documents/GitHub/Panama-Pursuit/PanamaBackend/PanamaBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/noahw608/Desktop/Panama-Pursuit/PanamaBackend/PanamaBackend.csproj",
+        "projectUniqueName": "/Users/ajrbones/Documents/GitHub/Panama-Pursuit/PanamaBackend/PanamaBackend.csproj",
         "projectName": "PanamaBackend",
-        "projectPath": "/Users/noahw608/Desktop/Panama-Pursuit/PanamaBackend/PanamaBackend.csproj",
-        "packagesPath": "/Users/noahw608/.nuget/packages/",
-        "outputPath": "/Users/noahw608/Desktop/Panama-Pursuit/PanamaBackend/obj/",
+        "projectPath": "/Users/ajrbones/Documents/GitHub/Panama-Pursuit/PanamaBackend/PanamaBackend.csproj",
+        "packagesPath": "/Users/ajrbones/.nuget/packages/",
+        "outputPath": "/Users/ajrbones/Documents/GitHub/Panama-Pursuit/PanamaBackend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/noahw608/.nuget/NuGet/NuGet.Config"
+          "/Users/ajrbones/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
