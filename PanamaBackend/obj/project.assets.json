@@ -3578,26 +3578,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ehaup\\.nuget\\packages\\": {}
+    "/Users/noahw608/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ehaup\\OneDrive - University of Nebraska-Lincoln\\Documents\\GitHub\\Panama-Pursuit\\PanamaBackend\\PanamaBackend.csproj",
+      "projectUniqueName": "/Users/noahw608/Desktop/Panama-Pursuit/PanamaBackend/PanamaBackend.csproj",
       "projectName": "PanamaBackend",
-      "projectPath": "C:\\Users\\ehaup\\OneDrive - University of Nebraska-Lincoln\\Documents\\GitHub\\Panama-Pursuit\\PanamaBackend\\PanamaBackend.csproj",
-      "packagesPath": "C:\\Users\\ehaup\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ehaup\\OneDrive - University of Nebraska-Lincoln\\Documents\\GitHub\\Panama-Pursuit\\PanamaBackend\\obj\\",
+      "projectPath": "/Users/noahw608/Desktop/Panama-Pursuit/PanamaBackend/PanamaBackend.csproj",
+      "packagesPath": "/Users/noahw608/.nuget/packages/",
+      "outputPath": "/Users/noahw608/Desktop/Panama-Pursuit/PanamaBackend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ehaup\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/noahw608/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3666,7 +3664,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
