@@ -15,7 +15,7 @@ export default function Map(): JSX.Element {
     useEffect(() => {
         const fetchReports = async () => {
             try {
-                const response = await fetch("http://panamabackend-production.up.railway.app/api/reports");
+                const response = await fetch("https://panamabackend-production.up.railway.app/api/reports");
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const data: ReportDto[] = await response.json();
                 setReports(data);
